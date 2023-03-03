@@ -1,5 +1,3 @@
-﻿# Developer Tim Leinich
-
 $ErrorActionPreference = 'SilentlyContinue'
 
 # Stop Sophos services
