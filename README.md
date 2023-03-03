@@ -23,3 +23,7 @@ To uninstall the Sophos Endpoint Defense Service, you need SEDuninstall.exe. Thi
 
 # Disclaimer
 This script is provided "as is" without warranty of any kind, either expressed or implied, including but not limited to the implied warranties of merchantability and fitness for a particular purpose. The author and publisher of this script are not responsible for any damages resulting from its use or misuse. Use at your own risk.
+
+# Known residues
+"C:\Program Files (x86)\Sophos\Sophos Anti-Virus\SavShellExtX64.dll" (File still there and also still locked)
+SEDService cannot be completely removed, but it is deactivated and terminated as a service. (Service is completely gone after reboot) 
