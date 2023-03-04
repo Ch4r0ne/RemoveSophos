@@ -1,33 +1,33 @@
 $ErrorActionPreference = 'SilentlyContinue'
 
 # Stop Sophos services
-# Write-Host "1. Stop all Sophos services"
+Write-Host "1. Stop all Sophos services"
 Get-Service -DisplayName Sophos* | Set-Service -StartupType Disabled
 Get-Service -DisplayName Sophos* | Stop-Service -Force
 
 # Stop Sophos processes
-# Write-Host "2. Stop all Sophos processes"
+Write-Host "2. Stop all Sophos processes"
 "ALMon", "ManagementAgentNT", "RouterNT", "swc_service", "SavService", "SAVAdminService", "Sophos Endpoint Defense Service", "SEDService",
 "swi_service", "swi_filter", "SCFManager", "SophosNtpService", "SSPService" | ForEach-Object { Stop-Process -ProcessName $_ -Force }
 
 # Remove Sophos executables
-# Write-Host "3. Remove all Sophos executables"
+Write-Host "3. Remove all Sophos executables"
 Start-Process -FilePath ".\AVRemove.exe" -Verb RunAs
 Start-Process -FilePath ".\SEDuninstall.exe" -Verb runAs
 
 # Wait of Remove Sophos executables
-# Write-Host "Start-Sleep -Seconds 10"
+Write-Host "Start-Sleep -Seconds 10"
 Start-Sleep -Seconds 10
 
 # Uninstall Sophos products (not Nessesary if you Use AVRemove.exe and SEDuninstall.exe)
-# Write-Host "4. Uninstall all Sophos products"
+Write-Host "4. Uninstall all Sophos products"
 Get-WmiObject -Class Win32_Product | Where-Object {$_.Name -like "Sophos*"} | ForEach-Object {
     $UninstallGUID = $_.IdentifyingNumber
     Start-Process -FilePath msiexec -ArgumentList @("/uninstall $UninstallGUID", "/quiet", "/norestart") -Wait
 }
 
 # Remove Sophos directories
-# Write-Host "5. Remove all Sophos directories"
+Write-Host "5. Remove all Sophos directories"
 $foldersToDelete = @(
     "$env:ProgramFiles (x86)\Sophos",
     "$env:ProgramFiles (x86)\Common Files\Sophos",
@@ -44,11 +44,11 @@ foreach ($folder in $foldersToDelete) {
 }
 
 # Delete Sophos services
-# Write-Host "6. Delete all Sophos services"
+Write-Host "6. Delete all Sophos services"
 Get-Service -DisplayName Sophos* | ForEach-Object { & "sc.exe" "delete" $_.Name }
 
 # Remove Sophos registry entries (Critical)
-# Write-Host "7. Remove all Sophos registry entries"
+Write-Host "7. Remove all Sophos registry entries"
 Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Sophos" -Recurse -Force
 Remove-Item -Path "Registry::HKEY_CURRENT_USER\SOFTWARE\Sophos" -Recurse -Force
 Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Sophos" -Recurse -Force
@@ -167,15 +167,15 @@ Remove-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windo
 Remove-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\SharedDlls" -Name "C:\Windows\system32\vccorlib120.dll"
 
 # Remove Sophos drivers
-# Write-Host "8. Remove all Sophos drivers"
+Write-Host "8. Remove all Sophos drivers"
 pnputil.exe -e | select-string "Sophos" | foreach-object { pnputil.exe -f -d $_.ToString().Split(":")[1].Trim() }
  
 # Remove Sophos components from Windows Installer Cache (Critical)
-# Write-Host "9. Remove all Sophos components from Windows Installer Cache"
+Write-Host "9. Remove all Sophos components from Windows Installer Cache"
 Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -like "*Sophos*" } | ForEach-Object { $_.Uninstall() }
 
 # Deleting Sophos Accounts and Sophos Groups
-# Write-Host "10. Deleting Sophos Accounts and Sophos Groups"
+Write-Host "10. Deleting Sophos Accounts and Sophos Groups"
 $userAccounts = Get-LocalUser | Where-Object { $_.Name -like "SophosSAUDESKTOP*" }
 $userAccounts | ForEach-Object {
     if (Get-LocalUser -Name $_.Name -ErrorAction SilentlyContinue) {
