@@ -196,3 +196,6 @@ $groups | ForEach-Object {
 # Write-Host "11. Remove all Sophos residue"
 # Get-Process | Where-Object {$_.Modules.FileName -eq "C:\Program Files (x86)\Sophos\Sophos Anti-Virus\SavShellExtX64.dll"} | Stop-Process -Force
 # Remove-Item "C:\Program Files (x86)\Sophos" -Recurse -Force
+
+# Notify the user to restart
+Write-Host "Please perform a reboot"
