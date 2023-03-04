@@ -21,10 +21,10 @@ Start-Sleep -Seconds 10
 
 # Uninstall Sophos products (not Nessesary if you Use AVRemove.exe and SEDuninstall.exe)
 # Write-Host "Uninstall Sophos products"
-# Get-WmiObject -Class Win32_Product | Where-Object {$_.Name -like "Sophos*"} | ForEach-Object {
-#     $UninstallGUID = $_.IdentifyingNumber
-#     Start-Process -FilePath msiexec -ArgumentList @("/uninstall $UninstallGUID", "/quiet", "/norestart") -Wait
-# }
+Get-WmiObject -Class Win32_Product | Where-Object {$_.Name -like "Sophos*"} | ForEach-Object {
+    $UninstallGUID = $_.IdentifyingNumber
+    Start-Process -FilePath msiexec -ArgumentList @("/uninstall $UninstallGUID", "/quiet", "/norestart") -Wait
+}
 
 # Remove Sophos directories
 # Write-Host "Remove Sophos directories"
