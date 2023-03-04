@@ -69,7 +69,6 @@ Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Services\swi_filter" -Recurse 
 Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Services\swi_service" -Recurse -Force
 Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Services\SAVService" -Recurse -Force
 Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Services\SAVAdminService" -Recurse -Force
-
 Remove-Item -Path "Registry::HKEY_CLASSES_ROOT\Installer\Products\338C3CA1394DC06418F62DF6037FD93C" -Recurse -Force
 Remove-Item -Path "Registry::HKEY_CLASSES_ROOT\Installer\Products\9009F1B458DC0C34CBDB4D1909D8A525" -Recurse -Force
 Remove-Item -Path "Registry::HKEY_CLASSES_ROOT\Installer\Products\9B1ACBFAC6946EA489EAE31AFC6FC545" -Recurse -Force
