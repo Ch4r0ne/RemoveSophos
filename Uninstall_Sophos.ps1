@@ -49,26 +49,26 @@ Get-Service -DisplayName Sophos* | ForEach-Object { & "sc.exe" "delete" $_.Name 
 
 # Remove Sophos registry entries (Critical)
 # Write-Host "Remove Sophos registry entries"
-Remove-Item -Path "HKLM:\SOFTWARE\Sophos" -Recurse -Force
-Remove-Item -Path "HKCU:\SOFTWARE\Sophos" -Recurse -Force
-Remove-Item -Path "HKLM:\SOFTWARE\Wow6432Node\Sophos" -Recurse -Force
-Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Services\Sophos Endpoint Defense" -Recurse -Force
-Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Services\SntpService" -Recurse -Force
-Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Services\Sophos Agent" -Recurse -Force
-Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Services\Sophos AutoUpdate Service" -Recurse -Force
-Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Services\Sophos Client Firewall" -Recurse -Force
-Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Services\Sophos Client Firewall Manager" -Recurse -Force
-Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Services\Sophos ELAM" -Recurse -Force
-Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Services\Sophos Endpoint Defense" -Recurse -Force
-Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Services\Sophos Endpoint Defense Service" -Recurse -Force
-Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Services\Sophos Message Router" -Recurse -Force
-Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Services\Sophos System Protection Service" -Recurse -Force
-Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Services\Sophos Web Control Service" -Recurse -Force
-Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Services\SophosBootDriver" -Recurse -Force
-Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Services\swi_filter" -Recurse -Force
-Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Services\swi_service" -Recurse -Force
-Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Services\SAVService" -Recurse -Force
-Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Services\SAVAdminService" -Recurse -Force
+Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Sophos" -Recurse -Force
+Remove-Item -Path "Registry::HKEY_CURRENT_USER\SOFTWARE\Sophos" -Recurse -Force
+Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Sophos" -Recurse -Force
+Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sophos Endpoint Defense" -Recurse -Force
+Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SntpService" -Recurse -Force
+Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sophos Agent" -Recurse -Force
+Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sophos AutoUpdate Service" -Recurse -Force
+Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sophos Client Firewall" -Recurse -Force
+Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sophos Client Firewall Manager" -Recurse -Force
+Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sophos ELAM" -Recurse -Force
+Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sophos Endpoint Defense" -Recurse -Force
+Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sophos Endpoint Defense Service" -Recurse -Force
+Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sophos Message Router" -Recurse -Force
+Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sophos System Protection Service" -Recurse -Force
+Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sophos Web Control Service" -Recurse -Force
+Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SophosBootDriver" -Recurse -Force
+Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\swi_filter" -Recurse -Force
+Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\swi_service" -Recurse -Force
+Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SAVService" -Recurse -Force
+Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SAVAdminService" -Recurse -Force
 Remove-Item -Path "Registry::HKEY_CLASSES_ROOT\Installer\Products\338C3CA1394DC06418F62DF6037FD93C" -Recurse -Force
 Remove-Item -Path "Registry::HKEY_CLASSES_ROOT\Installer\Products\9009F1B458DC0C34CBDB4D1909D8A525" -Recurse -Force
 Remove-Item -Path "Registry::HKEY_CLASSES_ROOT\Installer\Products\9B1ACBFAC6946EA489EAE31AFC6FC545" -Recurse -Force
