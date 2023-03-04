@@ -174,7 +174,7 @@ pnputil.exe -e | select-string "Sophos" | foreach-object { pnputil.exe -f -d $_.
 # Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -like "*Sophos*" } | ForEach-Object { $_.Uninstall() }
 
 # Deleting Sophos Accounts and Sophos Groups
-Write-Host "Deleting Sophos Accounts and Sophos Groups"
+# Write-Host "Deleting Sophos Accounts and Sophos Groups"
 $userAccounts = Get-LocalUser | Where-Object { $_.Name -like "SophosSAUDESKTOP*" }
 foreach ($user in $userAccounts) {
     try {
