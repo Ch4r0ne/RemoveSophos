@@ -78,7 +78,7 @@ pnputil.exe -e | select-string "Sophos" | foreach-object { pnputil.exe -f -d $_.
 
 # Deleting Sophos Accounts and Sophos Groups
 Write-Host "Deleting Sophos Accounts and Sophos Groups"
-$userAccounts = Get-LocalUser | Where-Object { $_.Name -like "Sophos*" }
+$userAccounts = Get-LocalUser | Where-Object { $_.Name -like "SophosSAUDESKTOP*" }
 foreach ($user in $userAccounts) {
     try {
         Remove-LocalUser -Name $user.Name -ErrorAction Stop > $null
