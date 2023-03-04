@@ -171,6 +171,7 @@ Remove-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windo
 pnputil.exe -e | select-string "Sophos" | foreach-object { pnputil.exe -f -d $_.ToString().Split(":")[1].Trim() }
  
 # Remove Sophos components from Windows Installer Cache (Critical)
+# Write-Host "Remove Sophos components from Windows Installer Cache"
 Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -like "*Sophos*" } | ForEach-Object { $_.Uninstall() }
 
 # Deleting Sophos Accounts and Sophos Groups
@@ -190,5 +191,6 @@ $groups | ForEach-Object {
 }
 
 # Remove Sophos residue (Visibility due to the termination of the Fileexplorer service) (Critical)
+# Write-Host "Remove Sophos residue"
 Get-Process | Where-Object {$_.Modules.FileName -eq "C:\Program Files (x86)\Sophos\Sophos Anti-Virus\SavShellExtX64.dll"} | Stop-Process -Force
 Remove-Item "C:\Program Files (x86)\Sophos" -Recurse -Force
