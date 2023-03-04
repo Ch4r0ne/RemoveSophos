@@ -3,16 +3,17 @@ Uninstall Sophos Endpoint Sophos Endpoint Security and Control Version 10.8
 
 This PowerShell script is designed to remove Sophos Endpoint Security from a Windows computer. It performs the following actions:
 
-    1. Stops all Sophos services and processes
-    2. Removes all Sophos executables
-    3. Uninstalls all Sophos products
-    4. Deletes all Sophos directories
-    5. Deletes all Sophos services
-    6. Deletes all Sophos registry entries
-    7. Remove all Sophos drivers
-    8. Remove all Sophos components from Windows Installer Cache
-    9. Deleting all Sophos Accounts and Sophos Groups
-    10. Optional: Remove Sophos residue
+    1. Stops all Sophos services
+    2. Stops all Sophos processes
+    3. Removes all Sophos executables
+    4. Uninstalls all Sophos products
+    5. Deletes all Sophos directories
+    6. Deletes all Sophos services
+    7. Deletes all Sophos registry entries
+    8. Remove all Sophos drivers
+    9. Remove all Sophos components from Windows Installer Cache
+    10. Deleting all Sophos Accounts and Sophos Groups
+    11. Optional: Remove Sophos residue
     
 # Requirements
 To uninstall the Sophos Endpoint Defense Service, you need SEDuninstall.exe. This can be found in the Install_Sophos.exe file. Extract the installation file using a zip program and locate SEDuninstall.exe. Optionally, you can also find 'AVRemove.exe' and add it to the path where 'Uninstall_Sophos.ps1' is located.
