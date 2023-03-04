@@ -1,3 +1,5 @@
+Write-Host "Removal and cleanup of Sophos Endpoint Sophos Endpoint Security and Control version 10.8"
+
 $ErrorActionPreference = 'SilentlyContinue'
 
 # Stop Sophos services
