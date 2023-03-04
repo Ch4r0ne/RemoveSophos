@@ -54,6 +54,7 @@ Get-Service -DisplayName Sophos* | ForEach-Object { & "sc.exe" "delete" $_.Name 
 # Remove Sophos registry entries (Critical)
 # Write-Host "Remove Sophos registry entries"
 Remove-Item -Path "HKLM:\SOFTWARE\Sophos" -Recurse -Force
+Remove-Item -Path "HKCU:\SOFTWARE\Sophos" -Recurse -Force
 Remove-Item -Path "HKLM:\SOFTWARE\Wow6432Node\Sophos" -Recurse -Force
 Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Services\Sophos Endpoint Defense" -Recurse -Force
 Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Services\SntpService" -Recurse -Force
@@ -72,107 +73,102 @@ Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Services\swi_filter" -Recurse 
 Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Services\swi_service" -Recurse -Force
 Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Services\SAVService" -Recurse -Force
 Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Services\SAVAdminService" -Recurse -Force
-
-# Test
-Remove-Item -Path "HKLM:\SOFTWARE\Sophos" -Recurse -Force
-Remove-Item -Path "HKCU:\Software\Sophos" -Recurse -Force
-
-HKEY_CURRENT_USER\Software\Sophos
-HKEY_LOCAL_MACHINE\Software\Sophos
-
 Remove-Item -Path "HKEY_CLASSES_ROOT\Installer\Products\338C3CA1394DC06418F62DF6037FD93C" -Recurse -Force
 Remove-Item -Path "HKEY_CLASSES_ROOT\Installer\Products\9009F1B458DC0C34CBDB4D1909D8A525" -Recurse -Force
 Remove-Item -Path "HKEY_CLASSES_ROOT\Installer\Products\9B1ACBFAC6946EA489EAE31AFC6FC545" -Recurse -Force
 Remove-Item -Path "HKEY_CLASSES_ROOT\Installer\Products\A2BF508A448AABC40888AC4680D7951E" -Recurse -Force
 Remove-Item -Path "HKEY_CLASSES_ROOT\Installer\Products\D5001DEF8CBC5D542A88FF7CBB031412" -Recurse -Force
-
 Remove-Item -Path "HKEY_CLASSES_ROOT\Installer\Features\338C3CA1394DC06418F62DF6037FD93C" -Recurse -Force
 Remove-Item -Path "HKEY_CLASSES_ROOT\Installer\Features\9009F1B458DC0C34CBDB4D1909D8A525" -Recurse -Force
 Remove-Item -Path "HKEY_CLASSES_ROOT\Installer\Features\9B1ACBFAC6946EA489EAE31AFC6FC545" -Recurse -Force
 Remove-Item -Path "HKEY_CLASSES_ROOT\Installer\Features\A2BF508A448AABC40888AC4680D7951E" -Recurse -Force
 Remove-Item -Path "HKEY_CLASSES_ROOT\Installer\Features\D5001DEF8CBC5D542A88FF7CBB031412" -Recurse -Force
+Remove-Item -Path "HKEY_CLASSES_ROOT\Installer\UpgradeCodes\0D6888B32A8929940ACA98A3DEBB94B4" -Recurse -Force
+Remove-Item -Path "HKEY_CLASSES_ROOT\Installer\UpgradeCodes\82D9ADE749FF8CF439F889EBE1D3F767" -Recurse -Force
+Remove-Item -Path "HKEY_CLASSES_ROOT\Installer\UpgradeCodes\A2ECF5789F971654CBB5476964870E94" -Recurse -Force
+Remove-Item -Path "HKEY_CLASSES_ROOT\Installer\UpgradeCodes\D396FC6A171C5FD4EA9422B3666FA5A1" -Recurse -Force
+Remove-Item -Path "HKEY_CLASSES_ROOT\Installer\UpgradeCodes\E932B7952303A1943A2218777329E5A8" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\Features\338C3CA1394DC06418F62DF6037FD93C" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\Features\9009F1B458DC0C34CBDB4D1909D8A525" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\Features\9B1ACBFAC6946EA489EAE31AFC6FC545" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\Features\A2BF508A448AABC40888AC4680D7951E" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\Features\D5001DEF8CBC5D542A88FF7CBB031412" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\Products\338C3CA1394DC06418F62DF6037FD93C" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\Products\9009F1B458DC0C34CBDB4D1909D8A525" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\Products\9B1ACBFAC6946EA489EAE31AFC6FC545" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\Products\A2BF508A448AABC40888AC4680D7951E" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\Products\D5001DEF8CBC5D542A88FF7CBB031412" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\UpgradeCodes\0D6888B32A8929940ACA98A3DEBB94B4" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\UpgradeCodes\82D9ADE749FF8CF439F889EBE1D3F767" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\UpgradeCodes\A2ECF5789F971654CBB5476964870E94" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\UpgradeCodes\D396FC6A171C5FD4EA9422B3666FA5A1" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\UpgradeCodes\E932B7952303A1943A2218777329E5A8" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UpgradeCodes\0D6888B32A8929940ACA98A3DEBB94B4" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UpgradeCodes\82D9ADE749FF8CF439F889EBE1D3F767" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UpgradeCodes\A2ECF5789F971654CBB5476964870E94" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UpgradeCodes\D396FC6A171C5FD4EA9422B3666FA5A1" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UpgradeCodes\E932B7952303A1943A2218777329E5A8" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\338C3CA1394DC06418F62DF6037FD93C" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\9009F1B458DC0C34CBDB4D1909D8A525" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\9B1ACBFAC6946EA489EAE31AFC6FC545" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\A2BF508A448AABC40888AC4680D7951E" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\D5001DEF8CBC5D542A88FF7CBB031412" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{4B1F9009-CD85-43C0-BCBD-D491908D5A52}" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Sophos Endpoint Defense" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Eventlog\Application\Sophos Anti-Virus" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Eventlog\Application\Sophos Client Firewall" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Eventlog\Application\Sophos Client Firewall Manager" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Eventlog\Application\Sophos Message Router" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Eventlog\Application\Sophos System Protection" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Eventlog\Application\SophosAntiVirus" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Eventlog\System\SAVOnAccess" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Eventlog\System\SAVOnAccessControl" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Eventlog\System\SAVOnAccessFilter" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\SAVAdminService" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\SAVOnAccess" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\SAVService" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Sophos Agent" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Sophos AutoUpdate Service" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Sophos Client Firewall" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Sophos Client Firewall Manager" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Sophos ELAM" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Sophos Endpoint Defense" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Sophos Endpoint Defense Service" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Sophos Message Router" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Sophos System Protection Service" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Sophos Web Control Service" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Eventlog\Application\Sophos Anti-Virus" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Eventlog\Application\Sophos Client Firewall" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Eventlog\Application\Sophos Client Firewall Manager" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Eventlog\Application\Sophos Message Router" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Eventlog\Application\Sophos System Protection" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Eventlog\Application\SophosAntiVirus" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Eventlog\System\SAVOnAccess" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Eventlog\System\SAVOnAccessControl" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Eventlog\System\SAVOnAccessFilter" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SAVOnAccess" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SAVOnAccessControl" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SAVOnAccessFilter" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sophos-NetworkThreatProtection-Driver" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SophosBootDriver" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sophos Agent" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sophos AutoUpdate Service" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sophos Client Firewall" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sophos Client Firewall Manager" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sophos ELAM" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sophos Endpoint Defense" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sophos Endpoint Defense Service" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sophos Message Router" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sophos System Protection Service" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sophos Web Control Service" -Recurse -Force
+Remove-Item -Path "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SophosBootDriver" -Recurse -Force
 
-HKEY_CLASSES_ROOT\Installer\UpgradeCodes\0D6888B32A8929940ACA98A3DEBB94B4
-HKEY_CLASSES_ROOT\Installer\UpgradeCodes\82D9ADE749FF8CF439F889EBE1D3F767
-HKEY_CLASSES_ROOT\Installer\UpgradeCodes\A2ECF5789F971654CBB5476964870E94
-HKEY_CLASSES_ROOT\Installer\UpgradeCodes\D396FC6A171C5FD4EA9422B3666FA5A1
-HKEY_CLASSES_ROOT\Installer\UpgradeCodes\E932B7952303A1943A2218777329E5A8
-
-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\Features\338C3CA1394DC06418F62DF6037FD93C
-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\Features\9009F1B458DC0C34CBDB4D1909D8A525
-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\Features\9B1ACBFAC6946EA489EAE31AFC6FC545
-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\Features\A2BF508A448AABC40888AC4680D7951E
-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\Features\D5001DEF8CBC5D542A88FF7CBB031412
-
-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\Products\338C3CA1394DC06418F62DF6037FD93C
-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\Products\9009F1B458DC0C34CBDB4D1909D8A525
-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\Products\9B1ACBFAC6946EA489EAE31AFC6FC545
-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\Products\A2BF508A448AABC40888AC4680D7951E
-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\Products\D5001DEF8CBC5D542A88FF7CBB031412
-
-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\UpgradeCodes\0D6888B32A8929940ACA98A3DEBB94B4
-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\UpgradeCodes\82D9ADE749FF8CF439F889EBE1D3F767
-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\UpgradeCodes\A2ECF5789F971654CBB5476964870E94
-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\UpgradeCodes\D396FC6A171C5FD4EA9422B3666FA5A1
-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\UpgradeCodes\E932B7952303A1943A2218777329E5A8
-
-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UpgradeCodes\0D6888B32A8929940ACA98A3DEBB94B4
-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UpgradeCodes\82D9ADE749FF8CF439F889EBE1D3F767
-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UpgradeCodes\A2ECF5789F971654CBB5476964870E94
-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UpgradeCodes\D396FC6A171C5FD4EA9422B3666FA5A1
-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UpgradeCodes\E932B7952303A1943A2218777329E5A8
-
-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\338C3CA1394DC06418F62DF6037FD93C
-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\9009F1B458DC0C34CBDB4D1909D8A525
-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\9B1ACBFAC6946EA489EAE31AFC6FC545
-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\A2BF508A448AABC40888AC4680D7951E
-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\D5001DEF8CBC5D542A88FF7CBB031412
-
-
-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{09C6BF52-6DBA-4A97-9939-B6C24E4738BF}
-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{15C418EB-7675-42be-B2B3-281952DA014D}
-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{C12953C2-4F15-4A6C-91BC-511B96AE2775}
-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{FF11005D-CBC8-45D5-A288-25C7BB304121}
-HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Enum\Root\LEGACY_SAVADMINSERVICE
-HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Enum\Root\LEGACY_SAVONACCESS_CONTROL
-HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Enum\Root\LEGACY_SAVONACCESS_FILTER
-HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Enum\Root\LEGACY_SAVSERVICE
-HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Enum\Root\LEGACY_SOPHOS_AGENT
-HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Enum\Root\LEGACY_SOPHOS_AUTOUPDATE_AGENT
-HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Enum\Root\LEGACY_SOPHOS_AUTOUPDATE_SERVICE
-HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Enum\Root\LEGACY_SOPHOS_MESSAGE_ROUTER
-HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Eventlog\Application\SophosAntiVirus
-HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Eventlog\System\SAVOnAccess Control
-HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Eventlog\System\SAVOnAccess Filter
-HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\SAVAdminService
-HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\SAVOnAccess Control
-HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\SAVOnAccess Filter
-HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\SAVService
-HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Sophos Agent
-HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Sophos AutoUpdate Agent
-HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Sophos AutoUpdate Service
-HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Sophos Message Router
-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\Root\LEGACY_SAVADMINSERVICE
-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\Root\LEGACY_SAVONACCESS_CONTROL
-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\Root\LEGACY_SAVONACCESS_FILTER
-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\Root\LEGACY_SOPHOS_AGENT
-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\Root\LEGACY_SAVSERVICE
-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\Root\LEGACY_SOPHOS_AUTOUPDATE_AGENT
-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\Root\LEGACY_SOPHOS_AUTOUPDATE_SERVICE
-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\Root\LEGACY_SOPHOS_MESSAGE_ROUTER
-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Eventlog\Application\SophosAntiVirus
-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Eventlog\System\SAVOnAccess Control
-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Eventlog\System\SAVOnAccess Filter
-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SAVAdminService
-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SAVOnAccess Control
-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SAVOnAccess Filter
-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SAVService
-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sophos Agent
-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sophos AutoUpdate Agent
-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sophos AutoUpdate Service
-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sophos Message Router
-+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\SharedDlls
-+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+# Optional (Critical)
+# Remove-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\SharedDlls" -Name "C:\Program Files\Sophos\Sophos Network Threat Protection\BPAIF.dll"
+# Remove-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\SharedDlls" -Name "C:\Program Files\Sophos\Sophos Network Threat Protection\navl.dll"
+# Remove-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\SharedDlls" -Name "C:\Windows\system32\msvcp120.dll"
+# Remove-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\SharedDlls" -Name "C:\Windows\system32\msvcr120.dll"
+# Remove-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\SharedDlls" -Name "C:\Windows\system32\vccorlib120.dll"
 
 # Remove Sophos drivers
 # Write-Host "Remove Sophos drivers"
