@@ -76,6 +76,32 @@ pnputil.exe -e | select-string "Sophos" | foreach-object { pnputil.exe -f -d $_.
 # Remove Sophos components from Windows Installer Cache (Critical)
 # Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -like "*Sophos*" } | ForEach-Object { $_.Uninstall() }
 
+# Deleting Sophos Accounts and Sophos Groups
+Write-Host "Deleting Sophos Accounts and Sophos Groups"
+$userAccounts = Get-LocalUser | Where-Object { $_.Name -like "Sophos*" }
+foreach ($user in $userAccounts) {
+    try {
+        Remove-LocalUser -Name $user.Name -ErrorAction Stop > $null
+    }
+    catch {
+        if ($_.Exception.Message -notmatch "The user account does not exist") {
+            throw $_
+        }
+    }
+}
+
+$groups = "SophosAdministrator", "SophosOnAccess", "SophosPowerUser", "SophosUser"
+foreach ($group in $groups) {
+    try {
+        Remove-LocalGroup -Name $group -ErrorAction Stop > $null
+    }
+    catch {
+        if ($_.Exception.Message -notmatch "The group name could not be found") {
+            throw $_
+        }
+    }
+}
+
 # Remove Sophos residue (Visibility due to the termination of the Fileexplorer service)
 Get-Process | Where-Object {$_.Modules.FileName -eq "C:\Program Files (x86)\Sophos\Sophos Anti-Virus\SavShellExtX64.dll"} | Stop-Process -Force
 Remove-Item "C:\Program Files (x86)\Sophos" -Recurse -Force
