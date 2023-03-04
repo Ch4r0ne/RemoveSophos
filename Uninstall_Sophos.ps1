@@ -76,6 +76,6 @@ pnputil.exe -e | select-string "Sophos" | foreach-object { pnputil.exe -f -d $_.
 # Remove Sophos components from Windows Installer Cache (Critical)
 # Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -like "*Sophos*" } | ForEach-Object { $_.Uninstall() }
 
-# Remove Sophos residue
+# Remove Sophos residue (Visibility due to the termination of the Fileexplorer service)
 Get-Process | Where-Object {$_.Modules.FileName -eq "C:\Program Files (x86)\Sophos\Sophos Anti-Virus\SavShellExtX64.dll"} | Stop-Process -Force
 Remove-Item "C:\Program Files (x86)\Sophos" -Recurse -Force
