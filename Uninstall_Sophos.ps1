@@ -160,18 +160,18 @@ Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Service
 Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SophosBootDriver" -Recurse -Force
 
 # Optional (Critical)
-# Remove-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\SharedDlls" -Name "C:\Program Files\Sophos\Sophos Network Threat Protection\BPAIF.dll"
-# Remove-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\SharedDlls" -Name "C:\Program Files\Sophos\Sophos Network Threat Protection\navl.dll"
-# Remove-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\SharedDlls" -Name "C:\Windows\system32\msvcp120.dll"
-# Remove-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\SharedDlls" -Name "C:\Windows\system32\msvcr120.dll"
-# Remove-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\SharedDlls" -Name "C:\Windows\system32\vccorlib120.dll"
+Remove-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\SharedDlls" -Name "C:\Program Files\Sophos\Sophos Network Threat Protection\BPAIF.dll"
+Remove-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\SharedDlls" -Name "C:\Program Files\Sophos\Sophos Network Threat Protection\navl.dll"
+Remove-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\SharedDlls" -Name "C:\Windows\system32\msvcp120.dll"
+Remove-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\SharedDlls" -Name "C:\Windows\system32\msvcr120.dll"
+Remove-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\SharedDlls" -Name "C:\Windows\system32\vccorlib120.dll"
 
 # Remove Sophos drivers
 # Write-Host "Remove Sophos drivers"
 pnputil.exe -e | select-string "Sophos" | foreach-object { pnputil.exe -f -d $_.ToString().Split(":")[1].Trim() }
  
 # Remove Sophos components from Windows Installer Cache (Critical)
-# Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -like "*Sophos*" } | ForEach-Object { $_.Uninstall() }
+Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -like "*Sophos*" } | ForEach-Object { $_.Uninstall() }
 
 # Deleting Sophos Accounts and Sophos Groups
 # Write-Host "Deleting Sophos Accounts and Sophos Groups"
@@ -190,5 +190,5 @@ $groups | ForEach-Object {
 }
 
 # Remove Sophos residue (Visibility due to the termination of the Fileexplorer service) (Critical)
-# Get-Process | Where-Object {$_.Modules.FileName -eq "C:\Program Files (x86)\Sophos\Sophos Anti-Virus\SavShellExtX64.dll"} | Stop-Process -Force
-# Remove-Item "C:\Program Files (x86)\Sophos" -Recurse -Force
+Get-Process | Where-Object {$_.Modules.FileName -eq "C:\Program Files (x86)\Sophos\Sophos Anti-Virus\SavShellExtX64.dll"} | Stop-Process -Force
+Remove-Item "C:\Program Files (x86)\Sophos" -Recurse -Force
