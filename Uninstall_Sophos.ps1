@@ -37,10 +37,6 @@ $foldersToDelete = @(
     "$env:ProgramData\Microsoft\Windows\Start Menu\Programs\Sophos"
 )
 
-C:\\Windows\\Installer\\{15C418EB-7675-42be-B2B3-281952DA014D}
-C:\\Windows\\Installer\\{FED1005D-CBC8-45D5-A288-FFC7BB304121}
-C:\\Windows\\Installer\\{9ACB414D-9347-40B6-A453-5EFB2DB59DFA}
-
 foreach ($folder in $foldersToDelete) {
     if (Test-Path -Path $folder -PathType Container) {
         Remove-Item -Path $folder -Recurse -Force
