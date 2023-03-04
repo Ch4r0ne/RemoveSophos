@@ -20,6 +20,7 @@ To uninstall the Sophos Endpoint Defense Service, you need SEDuninstall.exe. Thi
     4. Navigate to the directory where the script is located.
     5. Run the script by typing the name of the script and pressing Enter.
     6. Wait for the script to finish. This may take several minutes.
+    7. Reboot the system
 
 # Disclaimer
 This script is provided "as is" without warranty of any kind, either expressed or implied, including but not limited to the implied warranties of merchantability and fitness for a particular purpose. The author and publisher of this script are not responsible for any damages resulting from its use or misuse. Use at your own risk.
