@@ -182,7 +182,7 @@ foreach ($user in $userAccounts) {
     }
     catch {
         if ($_.Exception.Message -notmatch "The user account does not exist") {
-            throw $_
+            Write-Host $_
         }
     }
 }
@@ -194,7 +194,7 @@ foreach ($group in $groups) {
     }
     catch {
         if ($_.Exception.Message -notmatch "The group name could not be found") {
-            throw $_
+            Write-Host $_
         }
     }
 }
