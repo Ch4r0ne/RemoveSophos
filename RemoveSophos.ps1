@@ -1,4 +1,5 @@
 Write-Host "Removal and cleanup of Sophos Endpoint Sophos Endpoint Security and Control version 10.8"
+Write-Host ""
 
 $ErrorActionPreference = 'SilentlyContinue'
 
