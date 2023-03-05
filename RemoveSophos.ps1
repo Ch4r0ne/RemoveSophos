@@ -196,5 +196,5 @@ $groups | ForEach-Object {
 # Remove-Item "C:\Program Files (x86)\Sophos" -Recurse -Force
 
 # Notify the user to restart
-Write-Host "Sophos is now completely uninstalled and removed"
+Write-Host "Sophos is now uninstalled and removed"
 Write-Host "Please reboot to complete the uninstallation completely"
