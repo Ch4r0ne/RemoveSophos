@@ -166,13 +166,23 @@ Remove-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windo
 Remove-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\SharedDlls" -Name "C:\Windows\system32\msvcr120.dll"
 Remove-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\SharedDlls" -Name "C:\Windows\system32\vccorlib120.dll"
 
-# Remove Sophos drivers
+# Remove Sophos drivers if exist
 Write-Host "8. Remove all Sophos drivers"
-pnputil.exe -e | select-string "Sophos" | foreach-object { pnputil.exe -f -d $_.ToString().Split(":")[1].Trim() }
- 
-# Remove Sophos components from Windows Installer Cache (Critical)
+$SophosDrivers = Get-WmiObject -Class Win32_PnPSignedDriver | Where-Object {$_.DeviceName -like "*Sophos*"}
+foreach ($Driver in $SophosDrivers) {
+    $DriverPath = $Driver.InfName
+    $null = (Get-Item $DriverPath).Delete()
+    Write-Host "Removed driver: $DriverPath"
+}
+
+# Remove Sophos from from Windows Installer Cache
 Write-Host "9. Remove all Sophos components from Windows Installer Cache"
-Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -like "*Sophos*" } | ForEach-Object { $_.Uninstall() }
+$SophosProducts = Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -like "*Sophos*" }
+foreach ($Product in $SophosProducts) {
+    $ProductName = $Product.Name
+    $Product.Uninstall()
+    Write-Host "Uninstalled product: $ProductName"
+}
 
 # Deleting Sophos Accounts and Sophos Groups
 Write-Host "10. Deleting Sophos Accounts and Sophos Groups"
