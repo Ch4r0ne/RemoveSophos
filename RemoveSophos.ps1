@@ -201,7 +201,7 @@ $groups | ForEach-Object {
 }
 
 # Optional: Remove Sophos residue (Visibility due to the termination of the Fileexplorer service) (Critical)
-# Write-Host "11. Remove all Sophos residue"
+# Write-Host "Remove all Sophos residue"
 # Get-Process | Where-Object {$_.Modules.FileName -eq "C:\Program Files (x86)\Sophos\Sophos Anti-Virus\SavShellExtX64.dll"} | Stop-Process -Force
 # Remove-Item "C:\Program Files (x86)\Sophos" -Recurse -Force
 
