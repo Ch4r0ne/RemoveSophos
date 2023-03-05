@@ -12,7 +12,7 @@ Uninstall Sophos Endpoint Sophos Endpoint Security and Control Version 10.8
 - Sophos Client Firewall Manager
 - Sophos Client Firewall
 - Sophos Network Threat Protection
-- Sophos Systen Protection Service
+- Sophos System Protection Service
 
 ## Requirements
 To uninstall the Sophos Endpoint Defense Service, you need SEDuninstall.exe. This can be found in the Install_Sophos.exe file. Extract the installation file using a zip program and locate SEDuninstall.exe. Optionally, you can also find 'AVRemove.exe' and add it to the path where 'Uninstall_Sophos.ps1' is located.
