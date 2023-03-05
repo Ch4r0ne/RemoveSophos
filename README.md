@@ -5,8 +5,8 @@ Uninstall Sophos Endpoint Sophos Endpoint Security and Control Version 10.8
 - Sophos Agent
 - Sophos Message Router
 - Sophos Web Control Service
-- Sophos Anti—Virus
-- Sophos Anti—Virus Statusreporter
+- Sophos Anti-Virus
+- Sophos Anti-Virus Statusreporter
 - Sophos Web Intelligence Service
 - Sophos Web Filter
 - Sophos Client Firewall Manager
