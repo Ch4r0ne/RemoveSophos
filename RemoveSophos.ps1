@@ -18,7 +18,7 @@ Start-Process -FilePath ".\AVRemove.exe" -Verb RunAs
 Start-Process -FilePath ".\SEDuninstall.exe" -Verb runAs
 
 # Wait of Remove Sophos executables
-Write-Host "Start-Sleep -Seconds 10"
+# Write-Host "Start-Sleep -Seconds 10"
 Start-Sleep -Seconds 10
 
 # Uninstall Sophos products (not Nessesary if you Use AVRemove.exe and SEDuninstall.exe)
@@ -196,4 +196,5 @@ $groups | ForEach-Object {
 # Remove-Item "C:\Program Files (x86)\Sophos" -Recurse -Force
 
 # Notify the user to restart
-Write-Host "Please perform a reboot"
+Write-Host "Sophos is now completely uninstalled and removed"
+Write-Host "Please reboot to complete the uninstallation completely"
