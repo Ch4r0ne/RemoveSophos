@@ -186,7 +186,7 @@ foreach ($Product in $SophosProducts) {
 
 # Deleting Sophos Accounts and Sophos Groups
 Write-Host "10. Deleting Sophos Accounts and Sophos Groups"
-$userAccounts = Get-LocalUser | Where-Object { $_.Name -like "SophosSAUDESKTOP*" }
+$userAccounts = Get-LocalUser | Where-Object { $_.Name -like "SophosSAU*" }
 $userAccounts | ForEach-Object {
     if (Get-LocalUser -Name $_.Name -ErrorAction SilentlyContinue) {
         Remove-LocalUser -Name $_.Name
