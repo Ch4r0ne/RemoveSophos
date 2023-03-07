@@ -119,19 +119,16 @@ Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\Produ
 Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\Products\9B1ACBFAC6946EA489EAE31AFC6FC545" -Recurse -Force
 Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\Products\A2BF508A448AABC40888AC4680D7951E" -Recurse -Force
 Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\Products\D5001DEF8CBC5D542A88FF7CBB031412" -Recurse -Force
-
 Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\UpgradeCodes\0D6888B32A8929940ACA98A3DEBB94B4" -Recurse -Force
 Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\UpgradeCodes\82D9ADE749FF8CF439F889EBE1D3F767" -Recurse -Force
 Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\UpgradeCodes\A2ECF5789F971654CBB5476964870E94" -Recurse -Force
 Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\UpgradeCodes\D396FC6A171C5FD4EA9422B3666FA5A1" -Recurse -Force
 Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\UpgradeCodes\E932B7952303A1943A2218777329E5A8" -Recurse -Force
-
 Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UpgradeCodes\0D6888B32A8929940ACA98A3DEBB94B4" -Recurse -Force
 Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UpgradeCodes\82D9ADE749FF8CF439F889EBE1D3F767" -Recurse -Force
 Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UpgradeCodes\A2ECF5789F971654CBB5476964870E94" -Recurse -Force
 Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UpgradeCodes\D396FC6A171C5FD4EA9422B3666FA5A1" -Recurse -Force
 Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UpgradeCodes\E932B7952303A1943A2218777329E5A8" -Recurse -Force
-
 Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\4055D32789EC5874FAF59EE15200683B" -Recurse -Force
 Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\338C3CA1394DC06418F62DF6037FD93C" -Recurse -Force
 Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\9009F1B458DC0C34CBDB4D1909D8A525" -Recurse -Force
