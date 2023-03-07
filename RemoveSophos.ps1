@@ -14,12 +14,12 @@ Write-Host "2. Stop all Sophos processes"
 
 # Remove Sophos executables
 Write-Host "3. Remove all Sophos executables"
-Start-Process -FilePath ".\AVRemove.exe" -Verb RunAs
-Start-Process -FilePath ".\SEDuninstall.exe" -Verb runAs
+Start-Process -FilePath ".\AVRemove.exe" -Verb RunAs -Wait
+Start-Process -FilePath ".\SEDuninstall.exe" -Verb runAs -Wait
 
 # Wait of Remove Sophos executables
 # Write-Host "Start-Sleep -Seconds 60
-Start-Sleep -Seconds 60
+# Start-Sleep -Seconds 60
 
 # Uninstall Sophos products (not Nessesary if you Use AVRemove.exe and SEDuninstall.exe)
 Write-Host "4. Uninstall all Sophos products"
