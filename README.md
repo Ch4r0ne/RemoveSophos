@@ -49,3 +49,10 @@ This script is provided "as is" without warranty of any kind, either expressed o
 ## Known residues
 - "C:\Program Files (x86)\Sophos\Sophos Anti-Virus\SavShellExtX64.dll" (File still there and also still locked)
 
+If your product may not have been deleted correctly, you may have a different product code in the Regetry, in which case you can add it to the script:
+
+Remove-Item -Path "Registry::HKEY_CLASSES_ROOT\Installer\Products\enterproducthere" -Recurse -Force
+Remove-Item -Path "Registry::HKEY_CLASSES_ROOT\Installer\Features\enterproducthere" -Recurse -Force
+Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\Features\enterproducthere" -Recurse -Force
+Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\Products\enterproducthere" -Recurse -Force
+Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\enterproducthere" -Recurse -Force
