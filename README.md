@@ -18,6 +18,9 @@ Uninstall Sophos Endpoint Sophos Endpoint Security and Control Version 10.8
 To uninstall the Sophos Endpoint Defense Service, you need SEDuninstall.exe. This can be found in the Install_Sophos.exe file. Extract the installation file using a zip program and locate SEDuninstall.exe. Optionally, you can also find 'AVRemove.exe' and add it to the path where 'Uninstall_Sophos.ps1' is located.
 
 ## Usage
+
+This script is dynamic and can therefore probably also uninstall all versions, only for the "Sophos Endpoint Defense Service" the requirements must be met.
+
     1. Download the script to the computer you want to remove Sophos Endpoint Security from.
     2. Note: SEDuninstall.exe and AVRemove.exe should be in the same path as the script.
     3. Open PowerShell as an administrator.
