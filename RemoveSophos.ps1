@@ -17,15 +17,30 @@ Write-Host "3. Remove all Sophos executables"
 Start-Process -FilePath ".\AVRemove.exe" -Verb RunAs -Wait
 Start-Process -FilePath ".\SEDuninstall.exe" -Verb RunAs -Wait
 
-# Wait of Remove Sophos executables
-# Write-Host "Start-Sleep -Seconds 60
-# Start-Sleep -Seconds 60
-
 # Uninstall Sophos products (not Nessesary if you Use AVRemove.exe and SEDuninstall.exe)
 Write-Host "4. Uninstall all Sophos products"
-Get-WmiObject -Class Win32_Product | Where-Object {$_.Name -like "Sophos*"} | ForEach-Object {
-    $UninstallGUID = $_.IdentifyingNumber
-    Start-Process -FilePath msiexec -ArgumentList @("/uninstall $UninstallGUID", "/quiet", "/norestart") -Wait
+$programs = @(
+    "Sophos Network Threat Protection",
+    "Sophos System Protection",
+    "Sophos Client Firewall",
+    "Sophos Anti-Virus",
+    "Sophos Remote Management System",
+    "Sophos AutoUpdate",
+    "Sophos Endpoint Defense"
+)
+
+foreach ($program in $programs) {
+    $programVersion = Get-ChildItem -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall, HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall |
+        Get-ItemProperty |
+        Where-Object {$_.DisplayName -match $program } |
+        Select-Object -Property DisplayName, UninstallString
+
+    foreach ($version in $programVersion) {
+        if ($version.UninstallString) {
+            $uninstallString = $version.UninstallString
+            Start-Process cmd "/c $uninstallString /qn REBOOT=SUPPRESS /PASSIVE" -NoNewWindow -Wait
+        }
+    }
 }
 
 # Remove Sophos directories
@@ -187,11 +202,6 @@ Remove-Item -Path "Registry::HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Service
 Remove-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\SharedDlls" -Name "C:\Program Files\Sophos\Sophos Network Threat Protection\BPAIF.dll"
 Remove-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\SharedDlls" -Name "C:\Program Files\Sophos\Sophos Network Threat Protection\navl.dll"
 
-# (Critical)
-# Remove-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\SharedDlls" -Name "C:\Windows\system32\msvcp120.dll"
-# Remove-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\SharedDlls" -Name "C:\Windows\system32\msvcr120.dll"
-# Remove-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\SharedDlls" -Name "C:\Windows\system32\vccorlib120.dll"
-
 # Remove Sophos drivers if exist
 Write-Host "8. Remove all Sophos drivers"
 $SophosDrivers = Get-WmiObject -Class Win32_PnPSignedDriver | Where-Object {$_.DeviceName -like "*Sophos*"}
@@ -225,11 +235,6 @@ $groups | ForEach-Object {
         Remove-LocalGroup -Name $_
     }
 }
-
-# Optional: Remove Sophos residue (Visibility due to the termination of the Fileexplorer service) (Critical)
-# Write-Host "Remove all Sophos residue"
-# Get-Process | Where-Object {$_.Modules.FileName -eq "C:\Program Files (x86)\Sophos\Sophos Anti-Virus\SavShellExtX64.dll"} | Stop-Process -Force
-# Remove-Item "C:\Program Files (x86)\Sophos" -Recurse -Force
 
 # Notify the user to restart
 Write-Host "Sophos is now uninstalled and removed"
